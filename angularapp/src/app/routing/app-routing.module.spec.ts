@@ -61,17 +61,17 @@ describe("App Routing",() => {
     //     })
     // }))
 
-    fit('App Routing should route to home page by default', async () => {
+    fit('FrontEnd_App Routing should route to home page by default', async () => {
       await router.initialNavigation();
       expect(location.path()).toBe('/');
     });
 
-    fit('App Routing should route to admin page', async () => {
+    fit('FrontEnd_App Routing should route to admin page', async () => {
       await router.navigate(['/admin']);
       expect(location.path()).toBe('/admin');
     });
 
-    fit('App Routing should route to organizer page', async () => {
+    fit('FrontEnd_App Routing should route to organizer page', async () => {
       await router.navigate(['/organizer']);
       expect(location.path()).toBe('/organizer');
     });
@@ -86,7 +86,7 @@ describe("App Routing",() => {
     //   expect(location.path()).toBe('/register');
     // });
 
-    fit('App Routing should route to default path for invalid paths', async () => {
+    fit('FrontEnd_App Routing should route to default path for invalid paths', async () => {
         await router.navigate(['/invalid']);
         fixture.detectChanges();
         expect(location.path()).toBe('/error');

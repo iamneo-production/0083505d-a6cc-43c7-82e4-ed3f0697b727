@@ -42,11 +42,11 @@ describe('LoginComponent', () => {
 
   });
 
-  fit('LoginComponent_CreateComponent', () => {
+  fit('FrontEnd_LoginComponent_CreateComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  fit('LoginComponent_call_login_method_on_admin_login', () => {
+  fit('FrontEnd_LoginComponent_call_login_method_on_admin_login', () => {
     spyOn(authService, 'login').and.returnValue(of({ role: 'ADMIN' }));
     const router = TestBed.inject(Router); // Inject Router
     spyOn(router, 'navigate'); // Spy on router's navigate method
@@ -58,7 +58,7 @@ describe('LoginComponent', () => {
     expect(authService.login).toHaveBeenCalledWith('admin', 'password');
   });
 
-  fit('LoginComponent_should_navigate_to_admin_on_admin_login', () => {
+  fit('FrontEnd_LoginComponent_should_navigate_to_admin_on_admin_login', () => {
     spyOn(authService, 'login').and.returnValue(of({ role: 'ADMIN' }));
     const router = TestBed.inject(Router); // Inject Router
     spyOn(router, 'navigate'); // Spy on router's navigate method
@@ -71,7 +71,7 @@ describe('LoginComponent', () => {
   });
 
 
-  fit('LoginComponent_should_call_login_method_on_organizer_login', () => {
+  fit('FrontEnd_LoginComponent_should_call_login_method_on_organizer_login', () => {
     spyOn(authService, 'login').and.returnValue(of({ role: 'ORGANIZER' }));
     const router = TestBed.inject(Router); // Inject Router
     spyOn(router, 'navigate'); // Spy on router's navigate method
@@ -83,7 +83,7 @@ describe('LoginComponent', () => {
     expect(authService.login).toHaveBeenCalledWith('organizer', 'password');
   });
 
-  fit('LoginComponent_should_navigate to organizer on organizer login', () => {
+  fit('FrontEnd_LoginComponent_should_navigate to organizer on organizer login', () => {
     spyOn(authService, 'login').and.returnValue(of({ role: 'ORGANIZER' }));
     const router = TestBed.inject(Router); // Inject Router
     spyOn(router, 'navigate'); // Spy on router's navigate method
@@ -113,7 +113,7 @@ describe('LoginComponent', () => {
   //   expect(button.disabled).toBeFalsy();
   // });
 
-  fit('LoginComponent_should call login method on form submission', () => {
+  fit('FrontEnd_LoginComponent_should call login method on form submission', () => {
     spyOn(component, 'login');
 
     const button = fixture.nativeElement.querySelector('button');
@@ -127,7 +127,7 @@ describe('LoginComponent', () => {
   });
 
 
-  fit('LoginComponent_should show username required error message', fakeAsync(() => {
+  fit('FrontEnd_LoginComponent_should show username required error message', fakeAsync(() => {
     const usernameInput = debugElement.query(By.css('#username'));
     usernameInput.nativeElement.value = ''; // Set an empty value
     usernameInput.nativeElement.dispatchEvent(new Event('input')); // Trigger input event
@@ -141,7 +141,7 @@ describe('LoginComponent', () => {
     expect(errorMessage.nativeElement.textContent).toContain('Username is required');
   }));
 
-  fit('LoginComponent_should show password required error message', () => {
+  fit('FrontEnd_LoginComponent_should show password required error message', () => {
     const passwordInput = debugElement.query(By.css('#password'));
     passwordInput.nativeElement.value = ''; // Set an empty value
     passwordInput.nativeElement.dispatchEvent(new Event('input')); // Trigger input event

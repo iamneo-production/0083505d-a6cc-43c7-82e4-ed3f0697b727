@@ -96,11 +96,11 @@ describe('AdminService Integration Tests', () => {
   //   httpMock.verify(); // Verify that there are no open requests after each test
   // });
 
-  fit('Admin Service should create AdminServices', () => {
+  fit('FrontEnd_Admin Service should create AdminServices', () => {
     expect(service).toBeTruthy();
   });
 
-  fit('Admin Service should retrieve teams from the backend', (done: DoneFn) => {
+  fit('FrontEnd_Admin Service should retrieve teams from the backend', (done: DoneFn) => {
     service.getTeams().subscribe(
       (teams: Team[]) => {
         console.log(teams)
@@ -113,7 +113,7 @@ describe('AdminService Integration Tests', () => {
     );
   });
 
-  fit('Admin Service should create a new team via the backend', (done: DoneFn) => {
+  fit('FrontEnd_Admin Service should create a new team via the backend', (done: DoneFn) => {
     const newTeam: Team = { id: 3, name: 'New Team', maximumBudget: 50000 };
 
     service.createTeam(newTeam).subscribe(
@@ -127,7 +127,7 @@ describe('AdminService Integration Tests', () => {
     );
   });
 
-  fit('Admin Service should retrieve players from the backend', (done: DoneFn) => {
+  fit('FrontEnd_Admin Service should retrieve players from the backend', (done: DoneFn) => {
     service.getPlayers().subscribe(
       (players: Player[]) => {
         console.log(players)

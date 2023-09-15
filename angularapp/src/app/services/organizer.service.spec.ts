@@ -13,7 +13,7 @@ describe('OrganizerService', () => {
     service = TestBed.inject(OrganizerService);
   });
 
-  fit('OrganizerService_should create organizerServices', () => {
+  fit('FrontEnd_OrganizerService_should create organizerServices', () => {
     expect(service).toBeTruthy();
   });
 });

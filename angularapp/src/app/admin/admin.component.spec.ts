@@ -85,7 +85,7 @@ describe('AdminComponent', () => {
   //   expect(component.players.length).toBe(initialPlayerCount + 1);
   // }));
 
-  fit('Admin_Component_should_get_teams_and_players_on_initialization', () => {
+  fit('FrontEnd_Admin_Component_should_get_teams_and_players_on_initialization', () => {
     const mockTeams: Team[] = [{ id: 1, name: 'Team A', maximumBudget: 100000 }];
     const mockPlayers: Player[] = [{ id: 1, name: 'Player 1', age: 25 }];
 
