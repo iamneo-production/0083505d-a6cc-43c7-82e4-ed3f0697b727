@@ -49,7 +49,7 @@ public class CricketerTest {
 	
 	
 	@Test
-	public void TeamClass() {
+	public void BackEnd_TeamClass() {
 
 		String filePath = "src/main/java/com/examly/springapp/entities/Team.java";
 		File file = new File(filePath);
@@ -63,7 +63,7 @@ public class CricketerTest {
 	}
 	
 	@Test
-	public void PlayerClass() {
+	public void BackEnd_PlayerClass() {
 
 		String filePath = "src/main/java/com/examly/springapp/entities/Player.java";
 		File file = new File(filePath);
@@ -81,7 +81,7 @@ public class CricketerTest {
 	}
 	
 	@Test
-	public void UserClass() {
+	public void BackEnd_UserClass() {
 
 		String filePath = "src/main/java/com/examly/springapp/entities/User.java";
 		File file = new File(filePath);
@@ -96,7 +96,7 @@ public class CricketerTest {
 	}
 	
 	@Test
-	public void TeamClassRepo() {
+	public void BackEnd_TeamClassRepo() {
 
 		String filePath = "src/main/java/com/examly/springapp/repositories/TeamRepository.java";
 		File file = new File(filePath);
@@ -104,7 +104,7 @@ public class CricketerTest {
 	}
 	
 	@Test
-	public void PlayerClassRepo() {
+	public void BackEnd_PlayerClassRepo() {
 
 		String filePath = "src/main/java/com/examly/springapp/repositories/PlayerRepository.java";
 		File file = new File(filePath);
@@ -112,7 +112,7 @@ public class CricketerTest {
 	}
 	
 	@Test
-	public void UserClassRepo() {
+	public void BackEnd_UserClassRepo() {
 
 		String filePath = "src/main/java/com/examly/springapp/repositories/UserRepository.java";
 		File file = new File(filePath);
@@ -120,7 +120,7 @@ public class CricketerTest {
 	}
 	
 	@Test
-	public void Controllerfolder() {
+	public void BackEnd_Controllerfolder() {
 
 		String directoryPath = "src/main/java/com/examly/springapp/controllers"; // Replace with the path to your
 		File directory = new File(directoryPath);
@@ -128,28 +128,28 @@ public class CricketerTest {
 	}
 
 	@Test
-	public void AdminControllerFile() {
+	public void BackEnd_AdminControllerFile() {
 		String filePath = "src/main/java/com/examly/springapp/controllers/AdminController.java";
 		File file = new File(filePath);
 		assertTrue(file.exists() && file.isFile());
 	}
 	
 	@Test
-	public void UserControllerFile() {
+	public void BackEnd_UserControllerFile() {
 		String filePath = "src/main/java/com/examly/springapp/controllers/UserController.java";
 		File file = new File(filePath);
 		assertTrue(file.exists() && file.isFile());
 	}
 	
 	@Test
-	public void TeamControllerFile() {
+	public void BackEnd_TeamControllerFile() {
 		String filePath = "src/main/java/com/examly/springapp/controllers/OrganizerController.java";
 		File file = new File(filePath);
 		assertTrue(file.exists() && file.isFile());
 	}
 	
 	@Test
-	void Teamadd() throws Exception {
+	void BackEnd_Teamadd() throws Exception {
 		String st = "{\"id\": 1000,\"name\": \"Demo\",\"maximumBudget\":15000}";
 		mockMvc.perform(MockMvcRequestBuilders.post("/api/admin/teams").contentType(MediaType.APPLICATION_JSON).content(st)
 				.accept(MediaType.APPLICATION_JSON)).andExpect(MockMvcResultMatchers.status().isOk())
@@ -159,14 +159,14 @@ public class CricketerTest {
 	}
 
 	@Test
-	void GetallTeam() throws Exception {
+	void BackEnd_GetallTeam() throws Exception {
 		mockMvc.perform(MockMvcRequestBuilders.get("/api/admin/teams").accept(MediaType.APPLICATION_JSON)).andDo(print())
 				.andExpect(status().isOk()).andExpect(jsonPath("$").isArray()).andReturn();
 	}
 	
 
 	@Test
-	void Playeradd() throws Exception {
+	void BackEnd_Playeradd() throws Exception {
 		String st = "{\"id\": 1000,\"name\": \"Demo\", \"age\": 24,\"category\": \"Seniorteam\",\"biddingPrice\":15000,\"sold\":false,\"email\": \"Viratdemo@gmail.com\"}";
 		mockMvc.perform(MockMvcRequestBuilders.post("/api/admin/players").contentType(MediaType.APPLICATION_JSON).content(st)
 				.accept(MediaType.APPLICATION_JSON)).andExpect(MockMvcResultMatchers.status().isOk())
@@ -177,40 +177,40 @@ public class CricketerTest {
 
 	
 	@Test
-	void GetallPlayerWithTeam() throws Exception {
+	void BackEnd_GetallPlayerWithTeam() throws Exception {
 		mockMvc.perform(MockMvcRequestBuilders.get("/api/admin/players").accept(MediaType.APPLICATION_JSON)).andDo(print())
 				.andExpect(status().isOk()).andExpect(jsonPath("$").isArray()).andReturn();
 	}
 
 	@Test
-	public void TestFieldExistence() {
+	public void BackEnd_TestFieldExistence() {
 		Class<Player> player = Player.class;
 
 		assertFieldExists(player, "team");
 	}
 	
 	@Test
-	void GetallPlayerList() throws Exception {
+	void BackEnd_GetallPlayerList() throws Exception {
 		mockMvc.perform(MockMvcRequestBuilders.get("/api/organizer/player-list").param("teamId", "1000").accept(MediaType.APPLICATION_JSON)).andDo(print())
 				.andExpect(status().isOk()).andExpect(jsonPath("$").isArray()).andReturn();
 	}
 
 	
 	@Test
-	void GetallUnsoldPlayer() throws Exception {
+	void BackEnd_GetallUnsoldPlayer() throws Exception {
 		mockMvc.perform(MockMvcRequestBuilders.get("/api/organizer/unsold-players").accept(MediaType.APPLICATION_JSON)).andDo(print())
 				.andExpect(status().isOk()).andExpect(jsonPath("$").isArray()).andReturn();
 	}
 	
 	@Test
-	void GetallSoldPlayer() throws Exception {
+	void BackEnd_GetallSoldPlayer() throws Exception {
 		mockMvc.perform(MockMvcRequestBuilders.get("/api/organizer/sold-players").accept(MediaType.APPLICATION_JSON)).andDo(print())
 				.andExpect(status().isOk()).andExpect(jsonPath("$").isArray()).andReturn();
 	}
 	
 	
 	@Test
-	public void Configfolder() {
+	public void BackEnd_Configfolder() {
 
 		String directoryPath = "src/main/java/com/examly/springapp/configurations"; // Replace with the path to your
 		File directory = new File(directoryPath);
@@ -220,7 +220,7 @@ public class CricketerTest {
 	
 	
 	@Test
-	public void SpringSecurity() {
+	public void BackEnd_SpringSecurity() {
 		String filePath = "src/main/java/com/examly/springapp/configurations/ApplSecurityConfig.java";
 		File file = new File(filePath);
 		assertTrue(file.exists() && file.isFile());
@@ -237,7 +237,7 @@ public class CricketerTest {
 	}
 
 	@Test
-	void Springssecurity() throws Exception {
+	void BackEnd_Springssecurity() throws Exception {
 		String st = "{\"username\": \"admin\",\"password\": \"admin123\"}";
 		mockMvc.perform(MockMvcRequestBuilders.post("/api/auth/login").contentType(MediaType.APPLICATION_JSON)
 				.content(st).accept(MediaType.APPLICATION_JSON)).andExpect(MockMvcResultMatchers.status().isOk())
@@ -248,7 +248,7 @@ public class CricketerTest {
 
 	
 	@Test
-	void SpringRegisterUser() throws Exception {
+	void BackEnd_SpringRegisterUser() throws Exception {
 		String st = "{\"id\": 1000,\"username\": \"admin\",\"password\": \"admin123\",\"role\": \"ADMIN\"}";
 		mockMvc.perform(MockMvcRequestBuilders.post("/api/register").contentType(MediaType.APPLICATION_JSON).content(st)
 				.accept(MediaType.APPLICATION_JSON)).andExpect(MockMvcResultMatchers.status().isCreated())
